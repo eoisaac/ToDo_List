@@ -1,0 +1,98 @@
+:root {
+	--background-color:#383a59;
+	--container-color:#282a36;
+	--white-color:#f8f8f2;
+	--key-color:#6272a4;
+	--yellow-color:#f1fa8c;
+	--green-color:#50fa7b;
+	--red-color: #ff5555;
+}
+
+::selection {
+	background-color: var(--background-color);
+	color: var(--white-color);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: 0;
+}
+  
+body {
+	background: var(--background-color);
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--white-color);
+}
+
+p, h1{
+	text-align: center;
+	margin-bottom: 10px;
+}
+  
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	max-width: 600px;
+	margin: 50px auto;
+	background: var(--container-color);
+	padding: 20px;
+	border-radius: 10px;
+	color: var(--color-white);
+	box-shadow: 3px 3px var(--key-color);
+}
+  
+input {
+  padding: 5px;
+  border-radius: 10px;
+  border-style: none;
+  color: var(--container-color);
+	font-size: 18px;
+	width: 50rem;
+}
+
+.main-form{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.main-button {
+	padding: 5px;
+  font-size: 18px;
+	margin-left: 10px;
+  border-radius: 10px;
+  background-color: var(--yellow-color);
+  color: var(--container-color);
+
+  border-style: none;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}	
+  
+.main-button.-classDelete {
+	background-color: var(--red-color);
+	color: var(--white-color);
+	height: 35px;
+	width: 30px;
+}
+
+.main-button.-classCheck {
+	background-color: var(--green-color);
+	color: var(--white-color);
+	height: 35px;
+	width: 30px;
+}
+
+ul {
+	font-size: 18px;
+}
+
+ul li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}

@@ -1,41 +1,41 @@
-const inptTarefa = document.querySelector('#inptTarefa');
-const botaoAdd = document.querySelector('#botaoAdd');
-const listaTarefas = document.querySelector('#listaTarefas');
+const inptTask = document.querySelector('#inptTask');
+const addButton = document.querySelector('#addButton');
+const tasksList = document.querySelector('#tasksList');
 
 //Cria botão para marcar a <li>
-function addBotaoMarcar(li) {
-	const btnMarcar = document.createElement('button');
-	btnMarcar.innerHTML = '✔';
-	btnMarcar.setAttribute('class', 'main-button -classMarcar');
-	btnMarcar.setAttribute('title', 'Concluir tarefa');
-	li.appendChild(btnMarcar);
+function checkTask(li) {
+	const checkButton = document.createElement('button');
+	checkButton.innerHTML = '✔';
+	checkButton.setAttribute('class', 'main-button -classCheck');
+	checkButton.setAttribute('title', 'Concluir tarefa');
+	li.appendChild(checkButton);
 }
 
 //Cria botão para apagar a <li>
-function addBotaoApagar(li) {
-	const btnApagar = document.createElement('button');
-	btnApagar.innerHTML = 'X';
-	btnApagar.setAttribute('class', 'main-button -classApagar');
-	btnApagar.setAttribute('title', 'Apagar tarefa');
-	li.appendChild(btnApagar);
+function clearTask(li) {
+	const clearButton = document.createElement('button');
+	clearButton.innerHTML = 'X';
+	clearButton.setAttribute('class', 'main-button -classDelete');
+	clearButton.setAttribute('title', 'Apagar tarefa');
+	li.appendChild(clearButton);
 }
 
 //Limpa input e foca
-function limpaInput(){
-	inptTarefa.value = '';
-	inptTarefa.focus();
+function clearInput(){
+	inptTask.value = '';
+	inptTask.focus();
 }
 
 //Cria <li> com a tarefa;
-function criaTarefa(tarefaValue) {
+function createTask(tarefaValue) {
 	const liElement = document.createElement('li');
 	liElement.setAttribute('style', 'text-decoration: none');
 	liElement.innerText = tarefaValue;
-	listaTarefas.appendChild(liElement);
+	tasksList.appendChild(liElement);
 
-	addBotaoMarcar(liElement);
-	addBotaoApagar(liElement);
-	limpaInput();
+	checkTask(liElement);
+	clearTask(liElement);
+	clearInput();
 	//salvarListaTarefas();
 }
 
@@ -43,12 +43,12 @@ function criaTarefa(tarefaValue) {
 document.addEventListener('click', function(event) {
 	const btn = event.target;
   
-	if (btn.classList.contains('-classApagar')) {
+	if (btn.classList.contains('-classDelete')) {
 		btn.parentElement.remove();
 		//salvarListaTarefas();
 	}
 
-	if (btn.classList.contains('-classMarcar')){
+	if (btn.classList.contains('-classCheck')){
 		if(btn.parentElement.style.textDecoration == 'none'){
 			btn.parentElement.style.textDecoration = 'line-through';
 		}else{
@@ -59,17 +59,17 @@ document.addEventListener('click', function(event) {
 });
 
 //Add ENTER event
-inptTarefa.addEventListener('keypress', function(event){
+inptTask.addEventListener('keypress', function(event){
 	if (event.keyCode === 13){
-		if(inptTarefa.value == '') return alert('Nenhuma tarefa foi inserida! \n Insira a tarefa!');
-		criaTarefa(inptTarefa.value);
+		if(inptTask.value == '') return alert('Nenhuma tarefa foi inserida! \n Insira a tarefa!');
+		createTask(inptTask.value);
 	}
 });
 
 //Add mouse click event
-botaoAdd.addEventListener('click', function() {
-	if(inptTarefa.value == '') return alert('Nenhuma tarefa foi inserida! \n Insira a tarefa!');
-	criaTarefa(inptTarefa.value);
+addButton.addEventListener('click', function() {
+	if(inptTask.value == '') return alert('Nenhuma tarefa foi inserida! \n Insira a tarefa!');
+	createTask(inptTask.value);
 });
 
 /*Salvar tarefas em JSON: */
@@ -93,7 +93,7 @@ botaoAdd.addEventListener('click', function() {
 // 	const listaTarefas = JSON.parse(tarefas);
 
 // 	for(let tarefa of listaTarefas){
-// 		criaTarefa(tarefa);
+// 		createTask(tarefa);
 // 	}
 // }
 // addTarefasSalvas();
