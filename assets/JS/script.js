@@ -5,7 +5,7 @@ const tasksList = document.querySelector('#tasksList');
 //Cria botão para marcar a <li>
 function checkTask(li) {
 	const checkButton = document.createElement('button');
-	checkButton.innerHTML = '✔';
+	checkButton.innerHTML = 'Check';
 	checkButton.setAttribute('class', 'main-button -classCheck');
 	checkButton.setAttribute('title', 'Concluir tarefa');
 	li.appendChild(checkButton);
@@ -14,7 +14,7 @@ function checkTask(li) {
 //Cria botão para apagar a <li>
 function clearTask(li) {
 	const clearButton = document.createElement('button');
-	clearButton.innerHTML = 'X';
+	clearButton.innerHTML = 'Remove';
 	clearButton.setAttribute('class', 'main-button -classDelete');
 	clearButton.setAttribute('title', 'Apagar tarefa');
 	li.appendChild(clearButton);

@@ -35,6 +35,7 @@ p, h1{
 	display: flex;
 	flex-direction: column;
 	align-items: left;
+	height: 40rem;
 	max-width: 600px;
 	margin: 50px auto;
 	background: var(--container-color);
@@ -76,19 +77,18 @@ input {
 .main-button.-classDelete {
 	background-color: var(--red-color);
 	color: var(--white-color);
-	height: 35px;
-	width: 30px;
+
 }
 
 .main-button.-classCheck {
 	background-color: var(--green-color);
 	color: var(--white-color);
-	height: 35px;
-	width: 30px;
+
 }
 
 ul {
 	font-size: 18px;
+	overflow: auto;
 }
 
 ul li {
